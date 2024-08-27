@@ -3,6 +3,7 @@ import numpy as np
 import joblib
 import streamlit as st
 from sklearn.feature_extraction.text import CountVectorizer
+import random
 
 st.title("Sarcasm Text Detection")
 
