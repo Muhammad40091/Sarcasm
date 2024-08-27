@@ -19,18 +19,10 @@ training_size = 20000
 epochs = 5
 
 # Read csv file for using pandas libary
-sarcasm_df = pd.read_csv("Data.csv")
-
-# Split them two column
-input_seq = sarcasm_df['headlines']
-target_seq = sarcasm_df['target']
 
 
+tokenizer = Tokenizer(num_words=vocab_size, oov_token=oov_tok, )
 
-
-tokenizer = Tokenizer(num_words=vocab_size )
-tokenizer.fit_on_texts(input_seq)
-word_index = tokenizer.word_index
 model = tf.keras.models.load_model('sarcasm_detect.h5')
 
 text = st.text_input("Enter Text: ", placeholder='Write a text for detect sarcasm or not sarcasm')
