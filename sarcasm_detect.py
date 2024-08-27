@@ -25,7 +25,10 @@ sarcasm_df = pd.read_csv("Data.csv")
 input_seq = sarcasm_df['headlines']
 target_seq = sarcasm_df['target']
 
-tokenizer = Tokenizer(num_words=vocab_size, oov_token=oov_tok, )
+
+
+
+tokenizer = Tokenizer(num_words=vocab_size )
 tokenizer.fit_on_texts(input_seq)
 word_index = tokenizer.word_index
 model = tf.keras.models.load_model('sarcasm_detect.h5')
