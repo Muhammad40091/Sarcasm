@@ -4,7 +4,6 @@ import pandas as pd
 import tensorflow as tf
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from sklearn.model_selection import train_test_split
 import streamlit as st
 
 st.title("Sarcasm Text Detection")
@@ -12,13 +11,12 @@ st.title("Sarcasm Text Detection")
 # Define constants
 vocab_size = 10000
 embedding_dim = 16
-max_sequence_length = 100  # Updated variable name
+max_sequence_length = 100
 padding_type = 'post'
 trunc_type = 'post'
-oov_tok = "<OOV>"
 epochs = 5
 
-# Read csv file using pandas
+# Read CSV file using pandas
 sarcasm_df = pd.read_csv("Data.csv")
 
 # Tokenization and padding setup
@@ -42,7 +40,9 @@ def handle_input_text():
         
         # Predict sarcasm
         probs = model.predict(input_padded_sentences)
-        preds = int(np.round(probs[0][0]))  # Accessing the first prediction
+        
+        # If the model outputs probabilities, interpret the result
+        preds = (probs > 0.5).astype(int)[0][0]  # Assuming binary classification with sigmoid activation
         
         # Display result
         if preds == 1:
