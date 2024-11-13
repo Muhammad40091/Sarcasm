@@ -83,7 +83,7 @@ with col1:
 with col2:
     # Add custom CSS for styling the selectbox
     color = st.selectbox(
-        "Select a Color Palette",
+        "How are you feeling",
         options=[
             "Frustrated", "Content", "Happy", "Sad", "Angry", 
             "Excited"
