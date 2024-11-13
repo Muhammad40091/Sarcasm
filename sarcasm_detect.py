@@ -81,23 +81,20 @@ with col2:
     color = st.selectbox(
         "Select a Color Palette",
         options=[
-            "Red", "Green", "Blue", "Yellow", "Orange", 
-            "Purple", "Pink", "Brown", "Black", "White"
+            "Frustrated", "Content", "Happy", "Sad", "Angry", 
+            "Excited"
         ],  
     )
     
     # Dictionary to map color names to their hex codes
     color_map = {
-        "Red": "#FF0000",
-        "Green": "#00FF00",
-        "Blue": "#0000FF",
-        "Yellow": "#FFFF00",
-        "Orange": "#FFA500",
-        "Purple": "#800080",
-        "Pink": "#FFC0CB",
-        "Brown": "#A52A2A",
-        "Black": "#000000",
-        "White": "#FFFFFF"
+        "Frustrated": "#FF0000",
+        "Content": "#00FF00",
+        "Happy": "#0000FF",
+        "Sad": "#FFFF00",
+        "Angry": "#FFA500",
+        "Excited": "#800080"
+        
     }
 
     # Show the selected color as a colored box
